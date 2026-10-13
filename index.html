@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عسل امتياز (Emtiaz Honey) | متجر العسل الطبيعي الفاخر وعسل المكسرات</title>
+  <meta name="description" content="متجر عسل امتياز - أجود أنواع عسل النحل الطبيعي النقي 100% (سدر جبلي، زهور البرسيم، موالح، حبة البركة) وعسل المكسرات الفاخرة بأوزان كيلو ونصف كيلو، ومشتقات النحل. شحن سريع لجميع المحافظات ودفع عند الاستلام.">
+
+  <!-- Favicon -->
+  <link rel="icon" href="images/product_nuts.jpg">
+
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- ================= TOP ANNOUNCEMENT BAR ================= -->
+  <div class="announcement-bar">
+    <div class="container announcement-bar-container">
+      <div class="announcement-promo">
+        <span>🚚 الشحن مجاني 100% لكافة المنتجات ولجميع الطلبات إلى جميع محافظات مصر</span>
+        <span class="badge">دفع عند الاستلام 📦</span>
+      </div>
+      <div class="top-dev-credits">
+        <span>👨‍💻 المصمم والمطور: <strong>Mahmoud Osman</strong></span>
+        <a href="javascript:void(0)" onclick="openDevContactModal(event)" class="top-dev-email" title="اضغط لمراسلة المطور فوراً">✉️ mahmoudbadran338@gmail.com (راسل المطور)</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SITE HEADER ================= -->
+  <header class="site-header">
+    <div class="container header-container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo">
+        <div class="logo-icon">🍯</div>
+        <div class="brand-text">
+          <span class="brand-title">امتياز</span>
+          <span class="brand-tagline">عسل طبيعي فاخر • EMTIAZ HONEY</span>
+        </div>
+      </a>
+
+      <!-- Navigation Links -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#" class="active">الرئيسية</a></li>
+          <li><a href="#catalog">جميع المنتجات</a></li>
+          <li><a href="#nuts-showcase">عسل بالمكسرات</a></li>
+          <li><a href="#why-us">لماذا امتياز؟</a></li>
+          <li><a href="#honey-guide">فوائد العسل</a></li>
+          <li><a href="#contact">تواصل معنا</a></li>
+          <li class="mobile-only-nav"><a href="admin.html" target="_blank" style="color: var(--color-primary-dark); font-weight: 800;">⚙️ لوحة تحكم الإدارة (Admin)</a></li>
+        </ul>
+      </nav>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <a href="https://wa.me/201034161648?text=السلام%20عليكم%20ورحمة%20الله،%20أود%20الاستفسار%20والطلب%20من%20متجر%20عسل%20امتياز" target="_blank" class="header-whatsapp-btn" title="تواصل مباشرة عبر الواتساب">
+          💬 واتساب: 01034161648
+        </a>
+        <a href="admin.html" class="admin-access-link" title="لوحة تحكم الإدارة" target="_blank">⚙️ الإدارة</a>
+        <a href="#catalog" class="search-btn" title="البحث في المنتجات">🔍</a>
+        
+        <button type="button" class="cart-btn" data-open-cart title="سلة التسوق">
+          🛒
+          <span class="cart-count" id="cartBadge" style="display: none;">0</span>
+        </button>
+
+        <button type="button" class="mobile-menu-btn" onclick="document.querySelector('.nav-links').classList.toggle('active')" aria-label="القائمة">
+          ☰
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= HERO BANNER ================= -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>🌿</span> عسل نحل طبيعي وخام 100% مفحوص معملياً
+        </div>
+
+        <h1 class="hero-title">
+          عسل <span>امتياز</span>...<br>
+          نِعَم الطبيعة بأعلى درجات النقاء
+        </h1>
+
+        <p class="hero-desc">
+          نقدم لك خلاصة مناحلنا النقية من أجود سلالات النحل وأزهار الطبيعة الجبلية والبرية. تشكيلة ملكية من عسل النحل الصافي وعسل المكسرات الفاخرة بأوزان (كيلو ونصف كيلو)، بدون أي تسخين أو تغذية سكرية.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="#catalog" class="btn-primary">
+            <span>🛒</span> تصفح المنتجات والأسعار
+          </a>
+          <a href="#nuts-showcase" class="btn-secondary">
+            <span>🌰</span> عسل المكسرات الملكي
+          </a>
+        </div>
+
+        <div class="hero-features">
+          <div class="hero-feature-item">
+            <span class="icon">🔬</span>
+            <div class="text">
+              <b>فحص معملي معتمد</b>
+              <small>خالٍ من السكر والتسخين</small>
+            </div>
+          </div>
+
+          <div class="hero-feature-item">
+            <span class="icon">⚖️</span>
+            <div class="text">
+              <b>أوزان كيلو ونصف كيلو</b>
+              <small>اختر الوزن المناسب لاحتياجك</small>
+            </div>
+          </div>
+
+          <div class="hero-feature-item">
+            <span class="icon">🛡️</span>
+            <div class="text">
+              <b>الضمان الذهبي</b>
+              <small>معاينة كاملة قبل الدفع</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <img src="images/hero_banner.jpg" alt="برطمان عسل امتياز الطبيعي مع أقراص الشمع">
+        <div class="hero-float-badge">
+          <span class="badge-icon">⭐</span>
+          <div class="badge-info">
+            <b>جودة معتمدة 100%</b>
+            <small>أكثر من 15,000 عميل يثقون بامتياز</small>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= CATALOG SECTION ================= -->
+  <section class="catalog-section" id="catalog">
+    <div class="container">
+
+      <div class="section-head">
+        <span class="section-subtitle">متجر امتياز الإلكتروني</span>
+        <h2 class="section-title">تشكيلة منتجات عسل امتياز الفاخرة</h2>
+        <p class="section-desc">اختر من بين تشكيلتنا المتنوعة من عسل النحل النقي، عسل المكسرات المكثف، ومنتجات الخلية الطبيعية، مع إمكانية تحديد وزن البرطمان (كيلو أو نصف كيلو) بضغطة زر.</p>
+      </div>
+
+      <!-- Filter and Search Bar -->
+      <div class="filter-bar">
+        <div class="filter-categories">
+          <button type="button" class="filter-btn active" data-category="all">جميع المنتجات (9)</button>
+          <button type="button" class="filter-btn" data-category="honey">عسل نحل طبيعي</button>
+          <button type="button" class="filter-btn" data-category="nuts">عسل بالمكسرات</button>
+          <button type="button" class="filter-btn" data-category="honeycomb">شمع العسل</button>
+          <button type="button" class="filter-btn" data-category="bundles">عروض وبكجات التوفير 💥</button>
+        </div>
+
+        <div class="search-box">
+          <input type="text" id="searchInput" placeholder="ابحث باسم العسل أو المكونات...">
+          <span class="search-icon">🔍</span>
+        </div>
+      </div>
+
+      <!-- Dynamic Products Grid (Rendered by JS) -->
+      <div class="products-grid" id="productsGrid">
+
+      <div class="product-card" data-id="clover-honey">
+        <span class="product-badge-tag">الأكثر طلباً 🍯</span>
+        <div class="product-img-wrap" onclick="openQuickView('clover-honey')">
+          <img src="images/product_clover.jpg" id="img-clover-honey" alt="عسل زهرة البرسيم" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('clover-honey')" style="cursor: pointer;">عسل زهرة البرسيم</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(142 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-clover-honey">
+            <button type="button" class="weight-btn " onclick="switchWeight('clover-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn active" onclick="switchWeight('clover-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-clover-honey">300 ج.م</span>
+              <div class="price-unit-current" id="price-clover-honey">
+                240 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-clover-honey" onclick="handleAddToCart('clover-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="citrus-honey">
+        <span class="product-badge-tag">غني بفيتامين C 🍊</span>
+        <div class="product-img-wrap" onclick="openQuickView('citrus-honey')">
+          <img src="images/product_citrus.jpg" id="img-citrus-honey" alt="عسل زهرة الموالح" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('citrus-honey')" style="cursor: pointer;">عسل زهرة الموالح</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(118 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-citrus-honey">
+            <button type="button" class="weight-btn active" onclick="switchWeight('citrus-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('citrus-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-citrus-honey">180 ج.م</span>
+              <div class="price-unit-current" id="price-citrus-honey">
+                150 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-citrus-honey" onclick="handleAddToCart('citrus-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="black-seed-honey">
+        <span class="product-badge-tag">مناعة فائقة 🌿</span>
+        <div class="product-img-wrap" onclick="openQuickView('black-seed-honey')">
+          <img src="images/product_blackseed.jpg" id="img-black-seed-honey" alt="عسل حبة البركة" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('black-seed-honey')" style="cursor: pointer;">عسل حبة البركة</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(95 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-black-seed-honey">
+            <button type="button" class="weight-btn active" onclick="switchWeight('black-seed-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('black-seed-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-black-seed-honey">220 ج.م</span>
+              <div class="price-unit-current" id="price-black-seed-honey">
+                180 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-black-seed-honey" onclick="handleAddToCart('black-seed-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="marjoram-honey">
+        <span class="product-badge-tag">صحة وتوازن 🍃</span>
+        <div class="product-img-wrap" onclick="openQuickView('marjoram-honey')">
+          <img src="images/product_marjoram.jpg" id="img-marjoram-honey" alt="عسل البردقوش" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('marjoram-honey')" style="cursor: pointer;">عسل البردقوش</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(64 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-marjoram-honey">
+            <button type="button" class="weight-btn active" onclick="switchWeight('marjoram-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('marjoram-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-marjoram-honey">195 ج.م</span>
+              <div class="price-unit-current" id="price-marjoram-honey">
+                160 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-marjoram-honey" onclick="handleAddToCart('marjoram-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="nuts-honey">
+        <span class="product-badge-tag">طاقة متكاملة ⚡</span>
+        <div class="product-img-wrap" onclick="openQuickView('nuts-honey')">
+          <img src="images/product_nuts.jpg" id="img-nuts-honey" alt="عسل بالمكسرات" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🌰 عسل بالمكسرات</span>
+          <h3 class="product-title" onclick="openQuickView('nuts-honey')" style="cursor: pointer;">عسل بالمكسرات</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(230 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-nuts-honey">
+            <button type="button" class="weight-btn " onclick="switchWeight('nuts-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn active" onclick="switchWeight('nuts-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-nuts-honey">620 ج.م</span>
+              <div class="price-unit-current" id="price-nuts-honey">
+                520 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-nuts-honey" onclick="handleAddToCart('nuts-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="clover-honeycomb">
+        <span class="product-badge-tag">من الخلية مباشرة 🍯</span>
+        <div class="product-img-wrap" onclick="openQuickView('clover-honeycomb')">
+          <img src="images/product_honeycomb_clover.jpg" id="img-clover-honeycomb" alt="شمع العسل زهرة البرسيم" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🐝 شمع العسل الطبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('clover-honeycomb')" style="cursor: pointer;">شمع العسل زهرة البرسيم</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(86 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-clover-honeycomb">
+            <button type="button" class="weight-btn active" onclick="switchWeight('clover-honeycomb', '500')">قرص نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('clover-honeycomb', '1000')">قرص 1 كجم كامل</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-clover-honeycomb">175 ج.م</span>
+              <div class="price-unit-current" id="price-clover-honeycomb">
+                140 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-clover-honeycomb" onclick="handleAddToCart('clover-honeycomb')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="sidr-honey">
+        <span class="product-badge-tag">ملك الأعسال 👑</span>
+        <div class="product-img-wrap" onclick="openQuickView('sidr-honey')">
+          <img src="images/product_sidr.jpg" id="img-sidr-honey" alt="عسل السدر الجبلي" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('sidr-honey')" style="cursor: pointer;">عسل السدر الجبلي</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(175 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-sidr-honey">
+            <button type="button" class="weight-btn active" onclick="switchWeight('sidr-honey', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('sidr-honey', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-sidr-honey">380 ج.م</span>
+              <div class="price-unit-current" id="price-sidr-honey">
+                320 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-sidr-honey" onclick="handleAddToCart('sidr-honey')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="happy-mix">
+        <span class="product-badge-tag">طاقة وخصوبة ⚡</span>
+        <div class="product-img-wrap" onclick="openQuickView('happy-mix')">
+          <img src="images/product_happy_mix.jpg" id="img-happy-mix" alt="خلطة السعادة للمتزوجين" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">🍯 عسل نحل طبيعي</span>
+          <h3 class="product-title" onclick="openQuickView('happy-mix')" style="cursor: pointer;">خلطة السعادة للمتزوجين</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(164 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-happy-mix">
+            <button type="button" class="weight-btn active" onclick="switchWeight('happy-mix', '500')">نصف كيلو (500 جم)</button><button type="button" class="weight-btn " onclick="switchWeight('happy-mix', '1000')">1 كيلو (1000 جم)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-happy-mix">440 ج.م</span>
+              <div class="price-unit-current" id="price-happy-mix">
+                360 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-happy-mix" onclick="handleAddToCart('happy-mix')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card" data-id="saving-bundle">
+        <span class="product-badge-tag">وفر 230 ج.م 💥</span>
+        <div class="product-img-wrap" onclick="openQuickView('saving-bundle')">
+          <img src="images/product_bundle.jpg" id="img-saving-bundle" alt="بكج التوفير الاقتصادي (3 برطمانات)" loading="lazy">
+          <button type="button" class="product-quick-btn">👁️ معاينة سريعة</button>
+        </div>
+        <div class="product-body">
+          <span class="product-category">💥 عروض وبكجات التوفير</span>
+          <h3 class="product-title" onclick="openQuickView('saving-bundle')" style="cursor: pointer;">بكج التوفير الاقتصادي (3 برطمانات)</h3>
+          <div class="product-rating">
+            ★★★★★ <span>(310 تقييم)</span>
+          </div>
+          <div class="weight-switcher" id="switcher-saving-bundle">
+            <button type="button" class="weight-btn " onclick="switchWeight('saving-bundle', '500')">بكج 3 برطمانات (نصف كيلو)</button><button type="button" class="weight-btn active" onclick="switchWeight('saving-bundle', '1000')">بكج 3 برطمانات (1 كيلو)</button>
+          </div>
+          <div class="product-footer">
+            <div class="product-price-box">
+              <span class="price-unit-old" id="oldprice-saving-bundle">1190 ج.م</span>
+              <div class="price-unit-current" id="price-saving-bundle">
+                960 <span>ج.م</span>
+              </div>
+            </div>
+            <button type="button" class="btn-add-cart" id="addbtn-saving-bundle" onclick="handleAddToCart('saving-bundle')">
+              <span>🛒</span> أضف للسلة
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SPECIAL NUTS SHOWCASE BANNER ================= -->
+  <section class="special-nuts-section" id="nuts-showcase">
+    <div class="container nuts-banner-grid">
+      
+      <div class="nuts-banner-content">
+        <span style="color: var(--color-primary-light); font-weight: 800; font-size: 14px;">تشكيلة امتياز الحصرية بالمكسرات</span>
+        <h2>عسل امتياز بالمكسرات الفاخرة<br>برطمانات مليانة مكسرات من القاع للقمة!</h2>
+        <p>
+          لا نضع المكسرات للتزيين على السطح فقط! في عسل امتياز نملأ البرطمان بأكمله بأجود أنواع المكسرات الكاملة الطازجة والمحمصة بعناية، مغمورة في عسل النحل النقي ليمنحك وجبة طاقة وتركيز يومية متكاملة.
+        </p>
+
+        <div class="nuts-items-list">
+          <div class="nuts-list-pill">🌰 <b>عين الجمل الفاخر:</b> أوميجا 3 لدعم الدماغ والذاكرة</div>
+          <div class="nuts-list-pill">🥜 <b>اللوز المقرمش:</b> مغنيسيوم وبروتين لبناء الطاقة</div>
+          <div class="nuts-list-pill">✨ <b>الكاجو الذهبي:</b> زنك وحديد للنشاط والحيوية</div>
+          <div class="nuts-list-pill">🌰 <b>البندق المقرمش:</b> مذاق ساحر وقيمة غذائية عالية</div>
+        </div>
+
+        <button type="button" class="btn-primary" onclick="document.querySelector('[data-category=\'nuts\']').click(); location.href='#catalog';">
+          <span>🛒</span> تسوق عسل المكسرات الآن (كيلو ونصف كيلو)
+        </button>
+      </div>
+
+      <div class="nuts-banner-image">
+        <img src="images/product_nuts.jpg" alt="برطمان عسل امتياز 1 كيلو مليان مكسرات">
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= WHY EMTIAZ ================= -->
+  <section class="why-emtiaz-section" id="why-us">
+    <div class="container">
+
+      <div class="section-head">
+        <span class="section-subtitle">معايير الجودة والأمانة</span>
+        <h2 class="section-title">لماذا يختار عملاؤنا عسل «امتياز»؟</h2>
+        <p class="section-desc">نلتزم بأعلى معايير إنتاج وتعبئة عسل النحل لضمان وصول العسل الطبيعي النقي لمائدتك تماماً كما خرج من الخلية.</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-box">
+          <div class="feat-icon">🐝</div>
+          <h3>مناحلنا الخاصة</h3>
+          <p>نعتني بخلايا النحل في بيئات جبلية وزراعية نقية بعيداً عن التلوث والمبيدات الحشرية لضمان غذاء نقي.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">❄️</div>
+          <h3>عسل خام غير مبستر</h3>
+          <p>لا نقوم بتسخين العسل أو تعريضه لدرجات حرارة تفقد الإنزيمات الحية والفيتامينات الطبيعية قيمتها العلاجية.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">⚖️</div>
+          <h3>مرونة الأوزان</h3>
+          <p>نوفر برطمانات بحجم نصف كيلو للتجربة، وبرطمانات بحجم كيلو للتوفير والاستهلاك العائلي المنتظم.</p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feat-icon">🤝</div>
+          <h3>الضمان الذهبي لاسترداد الأموال</h3>
+          <p>حق المعاينة الكاملة عند الاستلام، وضمان استرجاع 100% من المبلغ لو أثبت الفحص المخبري أي عدم نقاء.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= HONEY GUIDE & BLOG ================= -->
+  <section class="catalog-section" id="honey-guide" style="background: #FFF9F0; border-top: 1px solid var(--color-border);">
+    <div class="container">
+
+      <div class="section-head">
+        <span class="section-subtitle">دليل امتياز الصحي</span>
+        <h2 class="section-title">معلومات تهمك عن عسل النحل الطبيعي</h2>
+        <p class="section-desc">تعرف على أهم النصائح العلمية للاستفادة القصوى من فوائد العسل ومشتقات النحل.</p>
+      </div>
+
+      <div class="products-grid">
+        
+        <div class="product-card" style="padding: 24px;">
+          <div style="font-size: 38px; margin-bottom: 12px;">🍯</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px; color: var(--color-primary-dark);">هل تبلور العسل دليل على غشه؟</h3>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.7;">
+            على العكس تماماً! التبلور (التجمد الطبيعي للعسل في الشتاء) هو علامة جودة مؤكدة تثبت أن العسل خام وطبيعي ولم يتعرض لدرجات حرارة عالية دمرت إنزيماته. العسل المبستر المسخن فقط هو الذي لا يتبلور.
+          </p>
+        </div>
+
+        <div class="product-card" style="padding: 24px;">
+          <div style="font-size: 38px; margin-bottom: 12px;">🛡️</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px; color: var(--color-primary-dark);">أفضل أنواع العسل لرفع المناعة</h3>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.7;">
+            يأتي في المقدمة **عسل حبة البركة** و**عسل السدر الجبلي**، فهما يحتويان على أعلى نسبة من مضادات الأكسدة ومركبات الفلافونويد المقاومة للفيروسات والبكتيريا ونزلات البرد الموسمية.
+          </p>
+        </div>
+
+        <div class="product-card" style="padding: 24px;">
+          <div style="font-size: 38px; margin-bottom: 12px;">⚡</div>
+          <h3 style="font-size: 18px; font-weight: 800; margin-bottom: 10px; color: var(--color-primary-dark);">لماذا يحتاج الرياضيون عسل المكسرات؟</h3>
+          <p style="font-size: 13.5px; color: var(--color-text-muted); line-height: 1.7;">
+            يقدم عسل المكسرات مزيجاً مثالياً من الكربوهيدرات البسيطة سريعة الامتصاص من العسل، متبوعة بالدهون الصحية والبروتين بطيء الهضم من المكسرات، مما يضمن تدفقاً مستمراً للطاقة دون هبوط حاد.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= DEDICATED WHATSAPP SUPPORT SECTION ================= -->
+  <section class="whatsapp-support-section" id="contact">
+    <div class="container whatsapp-support-grid">
+      <div class="whatsapp-support-content">
+        <h2><span>💬</span> تواصل واطلب مباشرة عبر الواتساب</h2>
+        <p>
+          فريق خدمة عملاء عسل امتياز متواجد وجاهز دائماً للرد على كافة استفساراتكم، ومساعدتكم في اختيار نوع العسل الأنسب لكم، وتأكيد طلباتكم فورياً مع شحن مجاني 100% لكافة محافظات مصر والدفع عند الاستلام بعد المعاينة!
+        </p>
+        <div class="whatsapp-features-pills">
+          <div class="whatsapp-feature-pill">⚡ رد فوري وسريع</div>
+          <div class="whatsapp-feature-pill">🚚 شحن مجاني لكافة المحافظات</div>
+          <div class="whatsapp-feature-pill">📦 دفع عند الاستلام بعد المعاينة</div>
+          <div class="whatsapp-feature-pill">🍯 ضمان ذهبي أصلي 100%</div>
+        </div>
+      </div>
+
+      <div class="whatsapp-support-actions">
+        <a href="https://wa.me/201034161648?text=السلام%20عليكم%20ورحمة%20الله،%20أود%20الاستفسار%20والطلب%20من%20متجر%20عسل%20امتياز" target="_blank" class="btn-big-whatsapp">
+          <span>💬</span> تواصل واتساب: 01034161648
+        </a>
+        <a href="tel:01034161648" class="btn-big-call">
+          <span>📞</span> اتصال هاتفي مباشر (01034161648)
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SITE FOOTER ================= -->
+  <footer class="site-footer">
+    <div class="container">
+      
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 16px;">
+            <div class="logo-icon">🍯</div>
+            <div class="brand-text">
+              <span class="brand-title" style="color: #FFFFFF;">امتياز</span>
+              <span class="brand-tagline" style="color: #D6C4B2;">عسل نحل طبيعي فاخر</span>
+            </div>
+          </div>
+          <p>
+            براند مصري رائد في إنتاج وتوزيع عسل النحل الخام وعسل المكسرات ومشتقات النحل الطبيعية بأعلى معايير النقاء والجودة والأمانة.
+          </p>
+          <div style="display: flex; gap: 10px; font-size: 20px;">
+            <span>🌿</span> <span>🍯</span> <span>📦</span> <span>🚚</span>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>أقسام المتجر</h4>
+          <ul class="footer-links">
+            <li><a href="#catalog">عسل السدر الجبلي</a></li>
+            <li><a href="#catalog">عسل زهور البرسيم</a></li>
+            <li><a href="#catalog">عسل الموالح والحمضيات</a></li>
+            <li><a href="#nuts-showcase">عسل امتياز بالمكسرات</a></li>
+            <li><a href="#catalog">شمع العسل زهرة البرسيم</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>خدمة العملاء</h4>
+          <ul class="footer-links">
+            <li><a href="#why-us">الضمان الذهبي للاسترجاع</a></li>
+            <li><a href="#catalog">أوزان البرطمانات والأسعار</a></li>
+            <li><a href="https://wa.me/201034161648" target="_blank">متابعة وتتبع الأوردر</a></li>
+            <li><a href="https://wa.me/201034161648" target="_blank">الشحن والتوصيل لجميع المحافظات</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>تواصل واطلب مباشرة</h4>
+          <p>فريق خدمة عملاء عسل امتياز جاهز للرد على استفساراتكم وتأكيد طلباتكم على مدار الساعة.</p>
+          <a href="https://wa.me/201034161648" target="_blank" class="cart-whatsapp-btn" style="margin-top: 10px; width: fit-content; padding: 10px 20px;">
+            💬 تواصل معنا عبر الواتساب
+          </a>
+        </div>
+
+      </div>
+
+      
+      <div class="developer-credits">
+        <span>💻 تصميم وبرمجة وتطوير المتجر بواسطة: <strong>Mahmoud Osman</strong></span>
+        <a href="javascript:void(0)" onclick="openDevContactModal(event)" class="dev-email-link" title="اضغط لمراسلة المطور فوراً">📧 راسل المطور مباشرة (mahmoudbadran338@gmail.com)</a>
+        <a href="https://wa.me/201034161648" target="_blank" class="dev-email-link" style="border-color: #25D366; color: #25D366;">📱 واتساب: 01034161648</a>
+        <a href="admin.html" class="admin-access-link" target="_blank">⚙️ لوحة تحكم المتجر (Admin)</a>
+      </div>
+<div class="footer-bottom">
+        <p>© 2026 براند عسل امتياز (Emtiaz Honey). جميع الحقوق محفوظة • الدفع عند الاستلام بعد المعاينة.</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ================= CART DRAWER (سلة التسوق الجانبية) ================= -->
+  <div class="cart-drawer-overlay" id="cartDrawerOverlay">
+    <div class="cart-drawer">
+      
+      <div class="cart-header">
+        <h3><span>🛒</span> سلة مشتريات عسل امتياز</h3>
+        <button type="button" class="cart-close-btn" id="cartCloseBtn">✕</button>
+      </div>
+
+      <div class="cart-body" id="cartBody">
+        <!-- يتم توليد عناصر السلة ديناميكياً بواسطة JS -->
+      </div>
+
+      <div class="cart-footer">
+        <div class="cart-summary-row">
+          <span>المجموع الفرعي:</span>
+          <span id="cartSubtotal">0 ج.م</span>
+        </div>
+
+        <div class="cart-summary-row">
+          <span>تكلفة التوصيل:</span>
+          <span id="cartShipping">0 ج.م</span>
+        </div>
+
+        <div class="cart-summary-row total">
+          <span>الإجمالي النهائي للدفع:</span>
+          <span id="cartTotal" style="color: var(--color-primary-dark);">0 ج.م</span>
+        </div>
+
+        <button type="button" class="cart-checkout-btn" id="cartCheckoutBtn">
+          ✅ إتمام الطلب (الدفع عند الاستلام)
+        </button>
+
+        <button type="button" class="cart-whatsapp-btn" id="cartWhatsappBtn">
+          💬 إرسال الطلب فوراً عبر الواتساب
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ================= QUICK VIEW MODAL (معاينة المنتج) ================= -->
+  <div class="modal-overlay" id="quickViewModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" onclick="closeModal('quickViewModal')">✕</button>
+      <div id="quickViewContent">
+        <!-- يتم تعبئة المحتوى ديناميكياً -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CHECKOUT MODAL (إنهاء الطلب والدفع عند الاستلام) ================= -->
+  <div class="modal-overlay" id="checkoutModal">
+    <div class="modal-card">
+      <button type="button" class="modal-close" onclick="closeModal('checkoutModal')">✕</button>
+      
+      <h2 style="font-size: 22px; font-weight: 900; color: var(--color-primary-dark); margin-bottom: 6px;">إتمام الطلب - الدفع عند الاستلام</h2>
+      <p style="font-size: 13.5px; color: var(--color-text-muted); margin-bottom: 18px;">يرجى كتابة عنوان التوصيل ورقم هاتفك ليصلك المندوب بأسرع وقت مع إمكانية المعاينة قبل الدفع.</p>
+
+      <!-- ملخص الطلب -->
+      <div id="checkoutSummaryBox" style="background: #FFF9F0; border: 1px solid var(--color-border); border-radius: 12px; padding: 14px; margin-bottom: 18px;">
+        <!-- ملخص السلة -->
+      </div>
+
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label for="custName">الاسم بالكامل *</label>
+          <input type="text" id="custName" class="form-input" placeholder="اكتب اسمك الثلاثي" required>
+        </div>
+
+        <div class="form-group">
+          <label for="custPhone">رقم الهاتف المحمول *</label>
+          <input type="tel" id="custPhone" class="form-input" placeholder="01xxxxxxxxx" required pattern="[0-9]{11}">
+        </div>
+
+        <div class="form-group">
+          <label for="custGov">المحافظة *</label>
+          <select id="custGov" class="form-input" required>
+            <option value="" disabled selected>اختر محافظتك</option>
+            <option value="القاهرة">القاهرة</option>
+            <option value="الجيزة">الجيزة</option>
+            <option value="الإسكندرية">الإسكندرية</option>
+            <option value="القليوبية">القليوبية</option>
+            <option value="الشرقية">الشرقية</option>
+            <option value="الدقهلية">الدقهلية</option>
+            <option value="الغربية">الغربية</option>
+            <option value="المنوفية">المنوفية</option>
+            <option value="البحيرة">البحيرة</option>
+            <option value="كفر الشيخ">كفر الشيخ</option>
+            <option value="دمياط">دمياط</option>
+            <option value="بورسعيد">بورسعيد</option>
+            <option value="الإسماعيلية">الإسماعيلية</option>
+            <option value="السويس">السويس</option>
+            <option value="الفيوم">الفيوم</option>
+            <option value="بني سويف">بني سويف</option>
+            <option value="المنيا">المنيا</option>
+            <option value="أسيوط">أسيوط</option>
+            <option value="سوهاج">سوهاج</option>
+            <option value="قنا">قنا</option>
+            <option value="الأقصر">الأقصر</option>
+            <option value="أسوان">أسوان</option>
+            <option value="أخرى">محافظة أخرى</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="custAddress">العنوان بالتفصيل (المنطقة / الشارع / رقم العقار) *</label>
+          <textarea id="custAddress" class="form-input" placeholder="اكتب عنوانك بالتفصيل لتسهيل وصول المندوب" required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="custNotes">ملاحظات إضافية على الطلب (اختياري)</label>
+          <input type="text" id="custNotes" class="form-input" placeholder="مثال: يرجى الاتصال قبل الوصول بنصف ساعة أو أي تعليمات خاصة">
+        </div>
+
+        <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; margin-top: 10px; padding: 14px; font-size: 17px;">
+          ✅ تأكيد طلب الأوردر الآن
+        </button>
+      </form>
+
+    </div>
+  </div>
+
+  <!-- ================= SUCCESS MODAL (تأكيد الطلب) ================= -->
+  <div class="modal-overlay" id="orderSuccessModal">
+    <div class="modal-card" style="text-align: center; max-width: 480px;">
+      <div style="font-size: 60px; margin-bottom: 12px;">🎉</div>
+      <h3 style="font-size: 22px; color: var(--color-accent); font-weight: 900; margin-bottom: 10px;">تم تسجيل طلبك بنجاح!</h3>
+      <p id="orderSuccessMsg" style="font-size: 14.5px; color: var(--color-text-muted); line-height: 1.8; margin-bottom: 20px;">
+        <!-- يتم التعبئة ديناميكياً -->
+      </p>
+      <button type="button" class="btn-primary" onclick="closeModal('orderSuccessModal')" style="width: 100%; justify-content: center;">
+        العودة للمتجر ومواصلة التسوق
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ================= DEVELOPER CONTACT MODAL (تواصل مع المطور) ================= -->
+  <div class="modal-overlay" id="devContactModal">
+    <div class="modal-card dev-modal-card">
+      <button type="button" class="modal-close" onclick="closeModal('devContactModal')">✕</button>
+      
+      <div style="text-align: center; margin-bottom: 18px;">
+        <div style="font-size: 44px; margin-bottom: 6px;">👨‍💻</div>
+        <h2 style="font-size: 22px; font-weight: 900; color: var(--color-primary-dark); margin-bottom: 4px;">تواصل مع مصمم ومطور المتجر</h2>
+        <p style="font-size: 13.5px; color: var(--color-text-muted);">
+          المصمم والمطور: <strong>Mahmoud Osman</strong><br>
+          اكتب رسالتك وسوف تصل فوراً وبشكل مباشر إلى البريد الإلكتروني الخاص به.
+        </p>
+      </div>
+
+      <form id="devContactForm" onsubmit="handleDevContactSubmit(event)">
+        <div class="form-group">
+          <label for="devSenderName">اسمك الكريم *</label>
+          <input type="text" id="devSenderName" class="form-input" required placeholder="مثال: أحمد محمد">
+        </div>
+
+        <div class="form-group">
+          <label for="devSenderContact">بريدك الإلكتروني أو رقم الواتساب *</label>
+          <input type="text" id="devSenderContact" class="form-input" required placeholder="مثال: ahmed@example.com أو 010xxxxxxxx">
+        </div>
+
+        <div class="form-group">
+          <label for="devMsgSubject">موضوع الرسالة</label>
+          <input type="text" id="devMsgSubject" class="form-input" placeholder="مثال: استفسار عن طلب تطوير متجر مماثل">
+        </div>
+
+        <div class="form-group">
+          <label for="devMsgBody">نص الرسالة أو الاستفسار *</label>
+          <textarea id="devMsgBody" class="form-input" rows="4" style="height: auto; padding: 10px 14px;" required placeholder="اكتب تفاصيل رسالتك هنا..."></textarea>
+        </div>
+
+        <button type="submit" id="devSubmitBtn" class="btn-primary" style="width: 100%; justify-content: center; padding: 14px; font-size: 16px; margin-top: 10px;">
+          ✉️ إرسال الرسالة إلى الإيميل الآن
+        </button>
+      </form>
+
+      <div style="margin-top: 16px; padding-top: 12px; border-top: 1px dashed var(--color-border); text-align: center; font-size: 13px; color: var(--color-text-muted);">
+        أو عبر بريدك المباشر: <a href="mailto:mahmoudbadran338@gmail.com" style="color: var(--color-primary-dark); font-weight: 800; text-decoration: underline;">mahmoudbadran338@gmail.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JavaScript App -->
+  <script src="js/app.js"></script>
+</body>
+</html>

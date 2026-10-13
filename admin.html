@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة تحكم إدارة متجر عسل امتياز | Admin Dashboard</title>
+  
+  <!-- Google Fonts: Cairo -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/style.css">
+  
+  <style>
+    :root {
+      --admin-bg: #F8F5F0;
+      --admin-card: #FFFFFF;
+      --admin-border: #E8DFD5;
+      --admin-primary: #C68A24;
+      --admin-dark: #261B0E;
+      --admin-accent: #2E7D32;
+      --admin-danger: #D32F2F;
+    }
+    
+    body {
+      background: var(--admin-bg);
+      font-family: 'Cairo', sans-serif;
+      color: var(--admin-dark);
+      margin: 0;
+      padding: 0;
+    }
+    
+    .admin-navbar {
+      background: #1C140A;
+      color: #FFFFFF;
+      padding: 16px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    
+    .admin-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: #FFFFFF;
+    }
+    
+    .admin-brand-icon {
+      font-size: 28px;
+    }
+    
+    .admin-brand h1 {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0;
+      color: #F8C360;
+    }
+    
+    .admin-brand span {
+      font-size: 12px;
+      color: #D6C4B2;
+    }
+    
+    .admin-nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    
+    .btn-storefront {
+      background: #C68A24;
+      color: #FFFFFF;
+      padding: 9px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s;
+    }
+    
+    .btn-storefront:hover {
+      background: #DF9F32;
+    }
+    
+    .btn-logout {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      color: #FFFFFF;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Cairo', sans-serif;
+      transition: all 0.2s;
+    }
+    
+    .btn-logout:hover {
+      background: var(--admin-danger);
+      border-color: var(--admin-danger);
+    }
+    
+    .admin-container {
+      max-width: 1250px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    .admin-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+    
+    .stat-card {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    
+    .stat-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 12px;
+      background: #FFF4E5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: var(--admin-primary);
+    }
+    
+    .stat-info h4 {
+      margin: 0 0 4px;
+      font-size: 13px;
+      color: #8C7A68;
+    }
+    
+    .stat-info .stat-value {
+      margin: 0;
+      font-size: 26px;
+      font-weight: 900;
+      color: var(--admin-dark);
+    }
+    
+    .admin-card-section {
+      background: var(--admin-card);
+      border: 1px solid var(--admin-border);
+      border-radius: 16px;
+      padding: 26px;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    }
+    
+    .admin-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 22px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid var(--admin-border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    
+    .admin-card-header h2 {
+      font-size: 20px;
+      font-weight: 900;
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--admin-dark);
+    }
+    
+    .admin-table-wrap {
+      overflow-x: auto;
+    }
+    
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+    }
+    
+    .admin-table th {
+      background: #FAF6F0;
+      padding: 14px 16px;
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #574635;
+      border-bottom: 2px solid var(--admin-border);
+    }
+    
+    .admin-table td {
+      padding: 14px 16px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--admin-border);
+      vertical-align: middle;
+    }
+    
+    .admin-table tr:hover {
+      background: #FFFDF9;
+    }
+    
+    .prod-thumb {
+      width: 56px;
+      height: 56px;
+      border-radius: 8px;
+      object-fit: cover;
+      border: 1px solid var(--admin-border);
+    }
+    
+    .price-badge {
+      background: #FFF4E5;
+      color: #93600C;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      display: inline-block;
+    }
+    
+    .btn-action {
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12.5px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-family: 'Cairo', sans-serif;
+      transition: opacity 0.2s;
+    }
+    
+    .btn-edit {
+      background: #E8F0FE;
+      color: #1A73E8;
+    }
+    
+    .btn-delete {
+      background: #FCE8E6;
+      color: var(--admin-danger);
+    }
+    
+    .btn-action:hover {
+      opacity: 0.85;
+    }
+    
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .form-group label {
+      font-size: 13.5px;
+      font-weight: 800;
+      color: #4A3A2A;
+    }
+    
+    .form-control {
+      padding: 10px 14px;
+      border: 1px solid var(--admin-border);
+      border-radius: 8px;
+      font-size: 14px;
+      font-family: 'Cairo', sans-serif;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #FAFAFA;
+    }
+    
+    .form-control:focus {
+      border-color: var(--admin-primary);
+      background: #FFFFFF;
+    }
+    
+    /* LOGIN OVERLAY */
+    .login-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(18, 12, 6, 0.94);
+      z-index: 10000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+    
+    .login-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 36px 32px;
+      width: 100%;
+      max-width: 440px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+      text-align: center;
+      border: 1px solid #E8DFD5;
+      animation: popIn 0.3s ease-out;
+    }
+    
+    @keyframes popIn {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    
+    .toast-msg {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #2E7D32;
+      color: #FFFFFF;
+      padding: 14px 24px;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      font-weight: 800;
+      font-size: 14px;
+      display: none;
+      z-index: 9999;
+      animation: fadeIn 0.3s;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SECURE LOGIN MODAL -->
+  <div class="login-overlay" id="loginOverlay">
+    <div class="login-card">
+      <div style="font-size: 50px; margin-bottom: 12px;">🔐</div>
+      <h2 style="font-size: 22px; font-weight: 900; color: #261B0E; margin: 0 0 8px;">لوحة تحكم عسل امتياز</h2>
+      <p style="font-size: 13.5px; color: #8C7A68; margin: 0 0 24px; line-height: 1.6;">هذه الصفحة محمية. يرجى إدخال كلمة مرور الإدارة المعتمدة لتعديل الأسعار والمنتجات.</p>
+      
+      <form id="loginForm" onsubmit="handleAdminLogin(event)">
+        <div class="form-group" style="text-align: right; margin-bottom: 18px;">
+          <label style="font-weight: 800;">كلمة مرور الإدارة *</label>
+          <input type="password" id="adminPasswordInput" class="form-control" placeholder="اكتب كلمة المرور..." required style="font-size: 16px; padding: 12px;">
+        </div>
+
+        <div id="loginErrorMsg" style="color: #D32F2F; font-size: 13px; font-weight: 800; margin-bottom: 14px; display: none;">
+          ❌ كلمة المرور غير صحيحة، يرجى المحاولة مجدداً!
+        </div>
+
+        <button type="submit" class="btn-storefront" style="width: 100%; justify-content: center; padding: 13px; font-size: 16px;">
+          🔓 تسجيل الدخول للإدارة
+        </button>
+      </form>
+      
+      <div style="margin-top: 20px; font-size: 12.5px; color: #8C7A68;">
+        المطور والمصمم: <strong style="color: #261B0E;">Mahmoud Osman</strong>
+      </div>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="admin-navbar">
+    <a href="#" class="admin-brand">
+      <div class="admin-brand-icon">🍯</div>
+      <div>
+        <h1>لوحة تحكم عسل امتياز</h1>
+        <span>إدارة المنتجات والأسعار والصور</span>
+      </div>
+    </a>
+    
+    <div class="admin-nav-actions">
+      <button type="button" class="btn-action" style="background: #4A3A2A; color: #FFF; padding: 9px 16px;" onclick="resetToDefaults()">
+        🔄 استعادة الافتراضي
+      </button>
+      <a href="index.html" class="btn-storefront" target="_blank">
+        👁️ فتح المتجر كعميل
+      </a>
+      <button type="button" class="btn-logout" onclick="handleAdminLogout()">
+        🔒 خروج
+      </button>
+    </div>
+  </header>
+
+  <div class="admin-container">
+    
+    <!-- STATS -->
+    <div class="admin-stats-grid">
+      <div class="stat-card">
+        <div class="stat-icon">📦</div>
+        <div class="stat-info">
+          <h4>إجمالي المنتجات المعروضة</h4>
+          <p class="stat-value" id="statTotalProducts">9</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">📱</div>
+        <div class="stat-info">
+          <h4>رقم الواتساب لاستقبال الطلبات</h4>
+          <p class="stat-value" style="font-size: 18px; color: #2E7D32;">01034161648</p>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">👨‍💻</div>
+        <div class="stat-info">
+          <h4>المطور والمصمم</h4>
+          <p class="stat-value" style="font-size: 17px;">Mahmoud Osman</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🛒</div>
+        <div class="stat-info">
+          <h4>إجمالي طلبات العملاء</h4>
+          <p class="stat-value" id="statTotalOrders" style="color: #2E7D32;">0</p>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📬</div>
+        <div class="stat-info">
+          <h4>رسائل واستفسارات المطور</h4>
+          <p class="stat-value" id="statDevMessages" style="color: #1976D2;">0</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PRODUCTS TABLE -->
+    <div class="admin-card-section">
+      <div class="admin-card-header">
+        <h2>📋 قائمة المنتجات والأسعار الحالية</h2>
+        <span style="font-size: 13px; color: #8C7A68;">يمكنك تعديل أي سعر أو اسم أو حذف منتج مباشرة</span>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>الصورة</th>
+              <th>اسم المنتج</th>
+              <th>التصنيف</th>
+              <th>سعر نصف كيلو (500 جم)</th>
+              <th>سعر 1 كيلو (1000 جم)</th>
+              <th>التقييم</th>
+              <th>إجراءات</th>
+            </tr>
+          </thead>
+          <tbody id="adminProductsTable">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- CUSTOMER ORDERS TABLE -->
+    <div class="admin-card-section" id="ordersSection">
+      <div class="admin-card-header">
+        <h2>🛒 سجل طلبات العملاء الواردة من المتجر</h2>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <button type="button" class="btn-storefront" onclick="renderAdminOrders()" style="padding: 7px 14px; font-size: 13px;">🔄 تحديث الطلبات</button>
+          <button type="button" class="btn-action btn-delete" onclick="clearAllOrders()" style="padding: 7px 14px; font-size: 13px;">🗑️ مسح السجل</button>
+        </div>
+      </div>
+
+    <!-- DEVELOPER MESSAGES DATABASE -->
+    <div class="admin-card-section" id="devMessagesSection">
+      <div class="admin-card-header">
+        <h2>📬 قاعدة بيانات رسائل واستفسارات المطور (Mahmoud Osman)</h2>
+        <div style="display: flex; gap: 10px; align-items: center; flex-wrap: wrap;">
+          <button type="button" class="btn-storefront" onclick="renderDevMessages()" style="padding: 7px 14px; font-size: 13px;">🔄 تحديث الرسائل</button>
+          <button type="button" class="btn-storefront" onclick="exportDevMessages()" style="padding: 7px 14px; font-size: 13px; background: #1976D2;">📥 تصدير الداتا بيز (JSON)</button>
+          <button type="button" class="btn-action btn-delete" onclick="clearDevMessages()" style="padding: 7px 14px; font-size: 13px;">🧹 مسح الرسائل</button>
+        </div>
+      </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>كود الرسالة والتاريخ</th>
+              <th>اسم المرسل</th>
+              <th>بيانات التواصل</th>
+              <th>موضوع الرسالة</th>
+              <th>نص الرسالة والاستفسار</th>
+              <th>الإجراءات والرد</th>
+            </tr>
+          </thead>
+          <tbody id="adminDevMessagesTable">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+      <div class="admin-table-wrap">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>رقم الطلب والتاريخ</th>
+              <th>اسم وهاتف العميل</th>
+              <th>المحافظة والعنوان</th>
+              <th>المنتجات والكميات المطلوبة</th>
+              <th>المبلغ المطلوب</th>
+              <th>الإجراءات والتواصل</th>
+            </tr>
+          </thead>
+          <tbody id="adminOrdersTable">
+            <!-- Rendered by JS -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+    <!-- ADD PRODUCT FORM -->
+    <div class="admin-card-section">
+      <div class="admin-card-header">
+        <h2>➕ إضافة منتج جديد إلى المتجر</h2>
+        <span style="font-size: 13px; color: #8C7A68;">سيظهر المنتج فوراً لزوار الموقع في القسم المناسب</span>
+      </div>
+
+      <form id="addProductForm">
+        <div class="form-grid">
+          <div class="form-group">
+            <label>اسم المنتج *</label>
+            <input type="text" id="newProdName" class="form-control" placeholder="مثال: عسل حبة البركة الخاص" required>
+          </div>
+
+          <div class="form-group">
+            <label>التصنيف *</label>
+            <select id="newProdCategory" class="form-control" required>
+              <option value="honey">🍯 عسل نحل طبيعي</option>
+              <option value="nuts">🌰 عسل بالمكسرات</option>
+              <option value="honeycomb">🐝 شمع العسل الطبيعي</option>
+              <option value="bundles">💥 عروض وبكجات التوفير</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>شارة المنتج (Badge)</label>
+            <input type="text" id="newProdBadge" class="form-control" placeholder="مثال: الأكثر طلباً 🍯 أو عرض حصري">
+          </div>
+
+          <div class="form-group">
+            <label>مسار أو رابط الصورة *</label>
+            <select id="newProdImage" class="form-control" required>
+              <option value="images/product_clover.jpg">عسل زهرة البرسيم (product_clover.jpg)</option>
+              <option value="images/product_citrus.jpg">عسل زهرة الموالح (product_citrus.jpg)</option>
+              <option value="images/product_blackseed.jpg">عسل حبة البركة (product_blackseed.jpg)</option>
+              <option value="images/product_marjoram.jpg">عسل البردقوش (product_marjoram.jpg)</option>
+              <option value="images/product_nuts.jpg">عسل بالمكسرات (product_nuts.jpg)</option>
+              <option value="images/product_honeycomb_clover.jpg">شمع العسل (product_honeycomb_clover.jpg)</option>
+              <option value="images/product_sidr.jpg">عسل السدر الجبلي (product_sidr.jpg)</option>
+              <option value="images/product_happy_mix.jpg">خلطة السعادة للمتزوجين (product_happy_mix.jpg)</option>
+              <option value="images/product_bundle.jpg">بكج التوفير 3 برطمانات (product_bundle.jpg)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>سعر نصف كيلو (500 جم) *</label>
+            <input type="number" id="newProdPrice500" class="form-control" placeholder="مثال: 150" required min="10">
+          </div>
+
+          <div class="form-group">
+            <label>السعر القديم لنصف كيلو (قبل الخصم)</label>
+            <input type="number" id="newProdOldPrice500" class="form-control" placeholder="مثال: 180">
+          </div>
+
+          <div class="form-group">
+            <label>سعر 1 كيلو (1000 جم) *</label>
+            <input type="number" id="newProdPrice1000" class="form-control" placeholder="مثال: 280" required min="10">
+          </div>
+
+          <div class="form-group">
+            <label>السعر القديم لـ 1 كيلو (قبل الخصم)</label>
+            <input type="number" id="newProdOldPrice1000" class="form-control" placeholder="مثال: 340">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label>وصف المنتج وفوائده الصحية *</label>
+          <textarea id="newProdDesc" class="form-control" rows="3" placeholder="اكتب نبذة عن مصدر العسل ومذاقه وفوائده..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-storefront" style="padding: 12px 28px; font-size: 16px;">
+          ➕ حفظ ونشر المنتج في المتجر فوراً
+        </button>
+      </form>
+    </div>
+
+  </div>
+
+  <!-- EDIT MODAL -->
+  <div class="modal-overlay" id="editModal">
+    <div class="modal-card" style="max-width: 550px;">
+      <button type="button" class="modal-close" onclick="closeEditModal()">✕</button>
+      
+      <h2 style="font-size: 20px; font-weight: 900; margin-bottom: 16px; color: #261B0E;">تعديل بيانات المنتج والأسعار</h2>
+      
+      <form id="editProductForm">
+        <input type="hidden" id="editProdId">
+        
+        <div class="form-group" style="margin-bottom: 12px;">
+          <label>اسم المنتج *</label>
+          <input type="text" id="editProdName" class="form-control" required>
+        </div>
+
+        <div class="form-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 12px;">
+          <div class="form-group">
+            <label>سعر نصف كيلو (ج.م) *</label>
+            <input type="number" id="editProdPrice500" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>السعر القديم لنصف كيلو</label>
+            <input type="number" id="editProdOldPrice500" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-grid" style="grid-template-columns: 1fr 1fr; margin-bottom: 16px;">
+          <div class="form-group">
+            <label>سعر 1 كيلو (ج.م) *</label>
+            <input type="number" id="editProdPrice1000" class="form-control" required>
+          </div>
+          <div class="form-group">
+            <label>السعر القديم لـ 1 كيلو</label>
+            <input type="number" id="editProdOldPrice1000" class="form-control">
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+          <label>صورة المنتج</label>
+          <select id="editProdImage" class="form-control">
+            <option value="images/product_clover.jpg">عسل زهرة البرسيم</option>
+            <option value="images/product_citrus.jpg">عسل زهرة الموالح</option>
+            <option value="images/product_blackseed.jpg">عسل حبة البركة</option>
+            <option value="images/product_marjoram.jpg">عسل البردقوش</option>
+            <option value="images/product_nuts.jpg">عسل بالمكسرات</option>
+            <option value="images/product_honeycomb_clover.jpg">شمع العسل</option>
+            <option value="images/product_sidr.jpg">عسل السدر الجبلي</option>
+            <option value="images/product_happy_mix.jpg">خلطة السعادة للمتزوجين</option>
+            <option value="images/product_bundle.jpg">بكج التوفير 3 برطمانات</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn-storefront" style="width: 100%; justify-content: center; padding: 12px;">
+          💾 حفظ التعديلات وتحديث المتجر
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast-msg" id="adminToast">تم الحفظ بنجاح!</div>
+
+  <script src="js/app.js"></script>
+  <script>
+    // =================== نظام الحماية بكلمة المرور المعتمدة ===================
+    const ADMIN_CORRECT_PASSWORD = "hag27803@;";
+
+    function checkAuth() {
+      const isAuth = sessionStorage.getItem('emtiaz_admin_authenticated') === 'true';
+      const overlay = document.getElementById('loginOverlay');
+      if (overlay) {
+        overlay.style.display = isAuth ? 'none' : 'flex';
+      }
+    }
+
+    function handleAdminLogin(e) {
+      e.preventDefault();
+      const input = document.getElementById('adminPasswordInput');
+      const err = document.getElementById('loginErrorMsg');
+      
+      if (input && input.value.trim() === ADMIN_CORRECT_PASSWORD) {
+        sessionStorage.setItem('emtiaz_admin_authenticated', 'true');
+        checkAuth();
+        showToast('🔓 مرحباً بك في لوحة تحكم عسل امتياز!');
+      } else {
+        if (err) err.style.display = 'block';
+        input.value = '';
+        input.focus();
+      }
+    }
+
+    function handleAdminLogout() {
+      sessionStorage.removeItem('emtiaz_admin_authenticated');
+      checkAuth();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth();
+      renderAdminTable(); renderAdminOrders(); renderDevMessages();
+      
+      const addForm = document.getElementById('addProductForm');
+      if (addForm) addForm.addEventListener('submit', handleAddProduct);
+      
+      const editForm = document.getElementById('editProductForm');
+      if (editForm) editForm.addEventListener('submit', handleSaveEdit);
+    });
+
+    function getAdminProducts() {
+      const stored = localStorage.getItem('emtiaz_custom_products');
+      if (stored) {
+        try { return JSON.parse(stored); } catch(e){}
+      }
+      return PRODUCTS;
+    }
+
+    function saveAdminProducts(prods) {
+      localStorage.setItem('emtiaz_custom_products', JSON.stringify(prods));
+      renderAdminTable();
+      showToast('✅ تم تحديث بيانات المتجر بنجاح!');
+    }
+
+    function renderAdminTable() {
+      const prods = getAdminProducts();
+      const tbody = document.getElementById('adminProductsTable');
+      const statTotal = document.getElementById('statTotalProducts');
+      if (statTotal) statTotal.textContent = prods.length;
+      
+      if (!tbody) return;
+      
+      tbody.innerHTML = prods.map((p, index) => {
+        const p500 = p.weights['500'] ? p.weights['500'].price + ' ج.م' : '-';
+        const p1000 = p.weights['1000'] ? p.weights['1000'].price + ' ج.م' : '-';
+        
+        return `
+          <tr>
+            <td><img src="${p.image}" class="prod-thumb" alt="${p.name}"></td>
+            <td><strong>${p.name}</strong><br><small style="color: #8C7A68;">${p.badge || ''}</small></td>
+            <td>${getCategoryLabel(p.category)}</td>
+            <td><span class="price-badge">${p500}</span></td>
+            <td><span class="price-badge">${p1000}</span></td>
+            <td>⭐ ${p.rating} (${p.reviews})</td>
+            <td>
+              <button type="button" class="btn-action btn-edit" onclick="openEditModal('${p.id}')">✏️ تعديل</button>
+              <button type="button" class="btn-action btn-delete" onclick="deleteProduct('${p.id}')">🗑️ حذف</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function openEditModal(id) {
+      const prods = getAdminProducts();
+      const p = prods.find(x => x.id === id);
+      if (!p) return;
+
+      document.getElementById('editProdId').value = p.id;
+      document.getElementById('editProdName').value = p.name;
+      document.getElementById('editProdPrice500').value = p.weights['500'] ? p.weights['500'].price : '';
+      document.getElementById('editProdOldPrice500').value = p.weights['500'] ? p.weights['500'].oldPrice : '';
+      document.getElementById('editProdPrice1000').value = p.weights['1000'] ? p.weights['1000'].price : '';
+      document.getElementById('editProdOldPrice1000').value = p.weights['1000'] ? p.weights['1000'].oldPrice : '';
+      
+      const imgSel = document.getElementById('editProdImage');
+      if (imgSel) imgSel.value = p.image;
+
+      document.getElementById('editModal').classList.add('open');
+    }
+
+    function closeEditModal() {
+      document.getElementById('editModal').classList.remove('open');
+    }
+
+    function handleSaveEdit(e) {
+      e.preventDefault();
+      const id = document.getElementById('editProdId').value;
+      const prods = getAdminProducts();
+      const p = prods.find(x => x.id === id);
+      if (!p) return;
+
+      p.name = document.getElementById('editProdName').value;
+      p.image = document.getElementById('editProdImage').value;
+      
+      const pr500 = parseInt(document.getElementById('editProdPrice500').value);
+      const old500 = parseInt(document.getElementById('editProdOldPrice500').value) || Math.round(pr500 * 1.2);
+      const pr1000 = parseInt(document.getElementById('editProdPrice1000').value);
+      const old1000 = parseInt(document.getElementById('editProdOldPrice1000').value) || Math.round(pr1000 * 1.2);
+
+      p.weights['500'] = { price: pr500, oldPrice: old500, label: 'نصف كيلو (500 جم)' };
+      p.weights['1000'] = { price: pr1000, oldPrice: old1000, label: '1 كيلو (1000 جم)' };
+
+      saveAdminProducts(prods);
+      closeEditModal();
+    }
+
+    function handleAddProduct(e) {
+      e.preventDefault();
+      const name = document.getElementById('newProdName').value;
+      const category = document.getElementById('newProdCategory').value;
+      const badge = document.getElementById('newProdBadge').value || 'جديد ✨';
+      const image = document.getElementById('newProdImage').value;
+      const desc = document.getElementById('newProdDesc').value;
+      
+      const p500 = parseInt(document.getElementById('newProdPrice500').value);
+      const old500 = parseInt(document.getElementById('newProdOldPrice500').value) || Math.round(p500 * 1.25);
+      const p1000 = parseInt(document.getElementById('newProdPrice1000').value);
+      const old1000 = parseInt(document.getElementById('newProdOldPrice1000').value) || Math.round(p1000 * 1.25);
+
+      const newId = 'prod-' + Date.now();
+      const newProd = {
+        id: newId,
+        name: name,
+        category: category,
+        badge: badge,
+        image: image,
+        description: desc,
+        benefits: ['طبيعي ونقي 100% بدون أي تسخين', 'مفحوص معملياً ومطابق للمواصفات', 'شحن مجاني لكافة المحافظات'],
+        rating: 5.0,
+        reviews: 1,
+        weights: {
+          500: { price: p500, oldPrice: old500, label: 'نصف كيلو (500 جم)' },
+          1000: { price: p1000, oldPrice: old1000, label: '1 كيلو (1000 جم)' }
+        },
+        defaultWeight: 500
+      };
+
+      const prods = getAdminProducts();
+      prods.push(newProd);
+      saveAdminProducts(prods);
+      document.getElementById('addProductForm').reset();
+      showToast('🎉 تم إضافة المنتج الجديد بنجاح!');
+    }
+
+    function deleteProduct(id) {
+      if (!confirm('هل أنت متأكد من حذف هذا المنتج من المتجر؟')) return;
+      let prods = getAdminProducts();
+      prods = prods.filter(x => x.id !== id);
+      saveAdminProducts(prods);
+      showToast('🗑️ تم حذف المنتج من المتجر.');
+    }
+
+    function resetToDefaults() {
+      if (!confirm('هل تريد استعادة قائمة المنتجات والأسعار الافتراضية الأصلية؟')) return;
+      localStorage.removeItem('emtiaz_custom_products');
+      renderAdminTable();
+      showToast('🔄 تمت استعادة المنتجات الافتراضية بنجاح.');
+    }
+
+    
+    // =================== إدارة ومتابعة طلبات العملاء ===================
+    function getAdminOrders() {
+      try {
+        return JSON.parse(localStorage.getItem('emtiaz_orders') || '[]');
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function renderAdminOrders() {
+      const orders = getAdminOrders();
+      const tbody = document.getElementById('adminOrdersTable');
+      const statOrders = document.getElementById('statTotalOrders');
+      if (statOrders) statOrders.textContent = orders.length;
+
+      if (!tbody) return;
+
+      if (orders.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 40px 20px; color: #8C7A68;">
+              <div style="font-size: 40px; margin-bottom: 10px;">📦</div>
+              <h3 style="margin: 0 0 6px; color: var(--admin-dark); font-size: 16px;">لا توجد طلبات مسجلة حتى الآن</h3>
+              <p style="margin: 0; font-size: 13px;">عندما يقوم أي عميل بطلب أوردر والدفع عند الاستلام، ستظهر بياناته هنا فوراً وتصله أيضاً على الواتساب.</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = orders.map((o, idx) => {
+        const cust = o.customer || {};
+        const items = o.items || [];
+        const itemsHtml = items.map(it => `• <b>${it.name || ''}</b> (${it.weight || ''}) × ${it.qty || 1} [${it.price * it.qty} ج.م]`).join('<br>');
+        const cleanPhone = (cust.phone || '').replace(/[^0-9]/g, '');
+        const waLink = `https://wa.me/2${cleanPhone}?text=${encodeURIComponent(`السلام عليكم ورحمة الله، أهلاً بك يا ${cust.name}! بخصوص طلبك رقم ${o.id} من متجر عسل امتياز...`)}`;
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: var(--admin-accent);">${o.id}</strong><br>
+              <small style="color: #8C7A68;">${o.date || ''}</small>
+            </td>
+            <td>
+              <strong>${cust.name || 'غير محدد'}</strong><br>
+              <a href="${waLink}" target="_blank" style="color: #2E7D32; font-weight: 800; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 4px;">
+                💬 ${cust.phone || ''}
+              </a>
+            </td>
+            <td>
+              <strong>${cust.gov || ''}</strong><br>
+              <small style="color: #574635; line-height: 1.4; display: inline-block;">${cust.address || ''}</small>
+              ${cust.notes ? `<br><small style="color: #C68A24;">📝 ${cust.notes}</small>` : ''}
+            </td>
+            <td style="font-size: 13px; line-height: 1.6;">
+              ${itemsHtml}
+            </td>
+            <td>
+              <span class="price-badge" style="background: #E8F5E9; color: #2E7D32; font-size: 15px;">${o.total || 0} ج.م</span>
+              <br><small style="color: #2E7D32;">شحن مجاني 🚚</small>
+            </td>
+            <td>
+              <a href="${waLink}" target="_blank" class="btn-storefront" style="padding: 6px 12px; font-size: 12px; text-decoration: none; margin-bottom: 6px; display: inline-block;">
+                💬 مراسلة واتساب
+              </a>
+              <button type="button" class="btn-action btn-delete" onclick="deleteOrder('${o.id}')" style="padding: 6px 10px; font-size: 12px;">
+                🗑️ حذف
+              </button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function deleteOrder(orderId) {
+      if (!confirm(`هل أنت متأكد من حذف الطلب ${orderId}؟`)) return;
+      let orders = getAdminOrders();
+      orders = orders.filter(o => o.id !== orderId);
+      localStorage.setItem('emtiaz_orders', JSON.stringify(orders));
+      renderAdminOrders();
+      showToast('🗑️ تم حذف الطلب بنجاح.');
+    }
+
+    function clearAllOrders() {
+      if (!confirm('هل أنت متأكد من مسح جميع سجلات الطلبات؟')) return;
+      localStorage.removeItem('emtiaz_orders');
+      renderAdminOrders();
+      showToast('🧹 تم مسح سجل الطلبات بالكامل.');
+    }
+
+    function copyAdminLink() {
+      const inp = document.getElementById('adminStoreLink');
+      if (inp) {
+        navigator.clipboard.writeText(inp.value).then(() => {
+          showToast('📋 تم نسخ رابط المتجر بنجاح!');
+        }).catch(() => {
+          inp.select();
+          document.execCommand('copy');
+          showToast('📋 تم نسخ رابط المتجر بنجاح!');
+        });
+      }
+    }
+
+    
+    // =================== قاعدة بيانات رسائل المطور ===================
+    function getDevMessages() {
+      try {
+        return JSON.parse(localStorage.getItem('emtiaz_dev_messages') || '[]');
+      } catch(e) {
+        return [];
+      }
+    }
+
+    function renderDevMessages() {
+      const msgs = getDevMessages();
+      const tbody = document.getElementById('adminDevMessagesTable');
+      const statCounter = document.getElementById('statDevMessages');
+      if (statCounter) statCounter.textContent = msgs.length;
+
+      if (!tbody) return;
+
+      if (msgs.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" style="text-align: center; padding: 35px 20px; color: #8C7A68;">
+              <div style="font-size: 38px; margin-bottom: 8px;">📬</div>
+              <h3 style="margin: 0 0 6px; color: var(--admin-dark); font-size: 15px;">لا توجد رسائل واردة في قاعدة بيانات المطور حالياً</h3>
+              <p style="margin: 0; font-size: 13px;">عندما يقوم أي زائر بإرسال رسالة من نافذة "تواصل مع المطور"، ستُسجل فوراً في قاعدة البيانات هنا.</p>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = msgs.map((m, idx) => {
+        const contact = m.sender_contact || '';
+        const isPhone = contact.match(/^01[0-9]{9}$/);
+        const isEmail = contact.includes('@');
+        
+        let contactAction = '';
+        if (isPhone) {
+          contactAction = `<a href="https://wa.me/2${contact}" target="_blank" style="color: #2E7D32; font-weight: bold; text-decoration: none; display: inline-flex; align-items: center; gap: 4px;">💬 واتساب: ${contact}</a>`;
+        } else if (isEmail) {
+          contactAction = `<a href="mailto:${contact}" style="color: #1976D2; font-weight: bold; text-decoration: underline;">✉️ ${contact}</a>`;
+        } else {
+          contactAction = `<span>${contact}</span>`;
+        }
+
+        return `
+          <tr>
+            <td>
+              <strong style="color: #1976D2;">${m.id || 'MSG-' + (idx+1)}</strong><br>
+              <small style="color: #8C7A68;">${m.date || ''}</small>
+            </td>
+            <td><strong>${m.sender_name || 'زائر المتجر'}</strong></td>
+            <td>${contactAction}</td>
+            <td><strong>${m.subject || 'بدون عنوان'}</strong></td>
+            <td style="max-width: 320px; font-size: 13.5px; line-height: 1.5; color: #332617; white-space: pre-wrap;">${m.message || ''}</td>
+            <td>
+              ${isPhone ? `<a href="https://wa.me/2${contact}?text=${encodeURIComponent(`السلام عليكم ورحمة الله يا ${m.sender_name}، بخصوص رسالتك لمطور متجر عسل امتياز...`)}" target="_blank" class="btn-storefront" style="padding: 5px 10px; font-size: 12px; text-decoration: none; margin-bottom: 5px; display: inline-block;">💬 رد واتساب</a>` : ''}
+              ${isEmail ? `<a href="mailto:${contact}?subject=${encodeURIComponent(`رد بخصوص: ${m.subject}`)}" class="btn-storefront" style="padding: 5px 10px; font-size: 12px; text-decoration: none; background: #1976D2; margin-bottom: 5px; display: inline-block;">✉️ رد إيميل</a>` : ''}
+              <button type="button" class="btn-action btn-delete" onclick="deleteDevMessage('${m.id}')" style="padding: 5px 10px; font-size: 12px;">🗑️ حذف</button>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function deleteDevMessage(id) {
+      if (!confirm('هل أنت متأكد من حذف هذه الرسالة من قاعدة البيانات؟')) return;
+      let msgs = getDevMessages();
+      msgs = msgs.filter(m => m.id !== id);
+      localStorage.setItem('emtiaz_dev_messages', JSON.stringify(msgs));
+      renderDevMessages();
+      showToast('🗑️ تم حذف الرسالة بنجاح.');
+    }
+
+    function clearDevMessages() {
+      if (!confirm('هل أنت متأكد من مسح جميع رسائل المطور من قاعدة البيانات؟')) return;
+      localStorage.removeItem('emtiaz_dev_messages');
+      renderDevMessages();
+      showToast('🧹 تم تفريغ قاعدة بيانات رسائل المطور.');
+    }
+
+    function exportDevMessages() {
+      const msgs = getDevMessages();
+      if (msgs.length === 0) {
+        alert('لا توجد رسائل لتصديرها حالياً.');
+        return;
+      }
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(msgs, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", `emtiaz_dev_messages_${Date.now()}.json`);
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+      showToast('📥 تم تصدير قاعدة البيانات بنجاح!');
+    }
+
+    function showToast(msg) {
+      const t = document.getElementById('adminToast');
+      if (t) {
+        t.textContent = msg;
+        t.style.display = 'block';
+        setTimeout(() => t.style.display = 'none', 3000);
+      }
+    }
+  </script>
+</body>
+</html>
